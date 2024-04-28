@@ -1,0 +1,67 @@
+package handlers
+
+import (
+	"context"
+	"devtask/internal/model"
+	"github.com/golang/mock/gomock"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+	"net/http"
+	"testing"
+)
+
+func Test_List(t *testing.T) {
+	t.Parallel()
+	var (
+		ctx = context.Background()
+	)
+	t.Run("smoke test", func(t *testing.T) {
+		t.Parallel()
+		// arrange
+		s := setUp(t)
+		defer s.tearDown()
+		s.mockArticles.EXPECT().ListInfo(gomock.Any()).Return([]model.PVZ{{ID: 1,
+			Name:    "test",
+			Address: "test",
+			Contact: "+7900000000"}}, nil)
+
+		// act
+		result, status := Lst(s.srv, ctx)
+
+		//assert
+		require.Equal(t, http.StatusOK, status)
+		assert.Equal(t, "[{\"ID\":1,\"name\":\"test\",\"address\":\"test\",\"contact\":\"+7900000000\"}]", string(result))
+
+	})
+	t.Run("fail", func(t *testing.T) {
+		t.Parallel()
+		t.Run("not found", func(t *testing.T) {
+			t.Parallel()
+			// arrange
+			s := setUp(t)
+			defer s.tearDown()
+			s.mockArticles.EXPECT().ListInfo(gomock.Any()).Return([]model.PVZ{}, model.ErrObjectNotFound)
+
+			// act
+			_, status := Lst(s.srv, ctx)
+
+			//assert
+			require.Equal(t, http.StatusNotFound, status)
+			assert.Equal(t, nil, nil)
+		})
+		t.Run("internal error", func(t *testing.T) {
+			t.Parallel()
+			// arrange
+			s := setUp(t)
+			defer s.tearDown()
+			s.mockArticles.EXPECT().ListInfo(gomock.Any()).Return([]model.PVZ{}, model.ErrNoRowsInResultSet)
+
+			// act
+			_, status := Lst(s.srv, ctx)
+
+			//assert
+			require.Equal(t, http.StatusInternalServerError, status)
+			assert.Equal(t, nil, nil)
+		})
+	})
+}

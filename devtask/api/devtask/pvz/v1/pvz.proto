@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package devtask.pvz.v1;
+option go_package = "devtask/pvz/v1;devtask_pvz_v1";
+
+service PVZ {
+  rpc AddInfo (AddInfoRequest) returns (AddInfoResponse) {}
+  rpc DeleteInfo (DeleteInfoRequest) returns (DeleteInfoResponse) {}
+  rpc GetInfo (GetInfoRequest) returns (GetInfoResponse) {}
+  rpc ListInfo (ListInfoRequest) returns (ListInfoResponse) {}
+  rpc UpdateInfo (UpdateInfoRequest) returns (UpdateInfoResponse) {}
+}
+
+message PVZInfo {
+  int64 id = 1;
+  string name = 2;
+  string address = 3;
+  string contact = 4;
+}
+
+message AddInfoRequest {
+  PVZInfo pvz = 1;
+}
+
+message AddInfoResponse {
+  PVZInfo pvz = 1;
+}
+
+message DeleteInfoRequest {
+  int64 id = 1;
+}
+
+message DeleteInfoResponse {
+}
+
+message GetInfoRequest {
+  int64 id = 1;
+}
+
+message GetInfoResponse {
+  PVZInfo pvz = 1;
+}
+
+message ListInfoRequest {}
+
+message ListInfoResponse {
+  repeated PVZInfo pvz = 1;
+}
+
+message UpdateInfoRequest {
+  PVZInfo pvz = 1;
+}
+
+message UpdateInfoResponse {
+  PVZInfo pvz = 1;
+}

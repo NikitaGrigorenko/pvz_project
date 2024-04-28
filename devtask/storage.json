@@ -1,0 +1,68 @@
+[
+    {
+        "IdOrder": 1,
+        "IdClient": 1,
+        "IsGiven": false,
+        "IsReturned": false,
+        "IsRefunded": false,
+        "ExpireDate": "2024-03-31T00:00:00Z",
+        "WeightGrams": 9,
+        "PriceKopeck": 705,
+        "PackageType": 0
+    },
+    {
+        "IdOrder": 2,
+        "IdClient": 1,
+        "IsGiven": true,
+        "IsReturned": false,
+        "IsRefunded": false,
+        "ExpireDate": "2024-03-31T00:00:00Z",
+        "WeightGrams": 30,
+        "PriceKopeck": 2130,
+        "PackageType": 0
+    },
+    {
+        "IdOrder": 3,
+        "IdClient": 2,
+        "IsGiven": false,
+        "IsReturned": false,
+        "IsRefunded": false,
+        "ExpireDate": "2024-03-31T00:00:00Z",
+        "WeightGrams": 25,
+        "PriceKopeck": 2030,
+        "PackageType": 2
+    },
+    {
+        "IdOrder": 6,
+        "IdClient": 4,
+        "IsGiven": false,
+        "IsReturned": false,
+        "IsRefunded": false,
+        "ExpireDate": "2024-03-31T00:00:00Z",
+        "WeightGrams": 1121,
+        "PriceKopeck": 3310,
+        "PackageType": 2
+    },
+    {
+        "IdOrder": 4,
+        "IdClient": 3,
+        "IsGiven": false,
+        "IsReturned": false,
+        "IsRefunded": true,
+        "ExpireDate": "2024-03-31T00:00:00Z",
+        "WeightGrams": 25,
+        "PriceKopeck": 2130,
+        "PackageType": 1
+    },
+    {
+        "IdOrder": 5,
+        "IdClient": 4,
+        "IsGiven": false,
+        "IsReturned": false,
+        "IsRefunded": false,
+        "ExpireDate": "2024-03-31T00:00:00Z",
+        "WeightGrams": 40,
+        "PriceKopeck": 133,
+        "PackageType": 2
+    }
+]

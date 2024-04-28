@@ -1,0 +1,17 @@
+{
+  "AUTH_PASSWORD": "1234",
+  "AUTH_USERNAME": "nikita",
+  "DB_HOST": "localhost",
+  "DB_NAME": "test_test",
+  "DB_PASSWORD": "test_test",
+  "DB_PORT": "5433",
+  "DB_USER": "test_test",
+  "BROKERS": "127.0.0.1:9091;127.0.0.1:9092;127.0.0.1:9093",
+  "KAFKA_GROUP" : "test-example",
+  "KAFKA_TOPIC" : "events",
+  "ADDR" : "localhost:6379",
+  "PASSWORD": "my-password",
+  "DB" : 0,
+  "GRPC_ADDR" : "localhost:10000",
+  "JAEGER_ADDR" : "localhost:16686"
+}
